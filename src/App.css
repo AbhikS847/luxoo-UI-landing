@@ -1,38 +1,158 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
+
+/* Media query for desktop */
+@media (min-width: 768px) {
+  .jumbotron {
+    padding: 50px !important; /* Increase padding for more spacing */
+    background-position: center;
+  }
+
+  .jumbotron > .intro {
+    font-size: 30px !important; /* Increase font size for text inside intro */
+  }
+
+  .display-1 {
+    font-size: 120px !important; /* Increase font size for the display-1 heading */
+  }
+
+  .btn.btn-primary {
+    font-size: 30px !important; /* Increase font size for the primary button */
+    padding: 12px 24px !important; /* Increase padding around the button */
+  }
+
+  .lower-jumbo{
+    margin-top:250px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .testimonial-section {
+    background-color: #ffffff65;
+    padding:16px;
+  }
+
+  .testimonial {
+    font-size: 24px; /* Adjust font size for testimonials */
+  }
+
+  @keyframes fade-in-out {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+}
+
+
+.luxo-header{
+  background: linear-gradient(to right, #FFD700, #FFA500);
+  color: white;
+  padding: 10px 0;
+  font-family: "Questrial", sans-serif;
+  font-style: normal;
+}
+
+.luxo-brand{
+  font-weight:700;
+  color:#fff;
+  transition: color 0.3s, font-size 0.3s; /* Adding smooth transitions */
+  cursor: pointer;
+}
+
+.luxo-brand:hover{
+  color: unset;
+  font-size: 1.6rem;
+}
+
+.luxo-links{
+  color:#fff
+}
+
+.luxo-links:hover{
+  font-weight:600;
+}
+
+.luxo-links:active{
+  font-weight:600;
+}
+
+.active{
+  font-weight:600;
+}
+
+.jumbotron{
+  background-image: url('./luxury-car.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Questrial", sans-serif;
+  padding:16px;
+}
+
+.jumbotron > .intro{
+  color:#fff;
+}
+
+.btn.btn-primary{
+  background: linear-gradient(to right, #FFD700, #FFA500) !important;
+  border:unset;
+  font-weight:400;
+}
+
+.lower-jumbo{
+  margin-top:100px;
+}
+
+.searchbar {
+  position: relative;
+  width: 100%;
+  max-width: 500px; /* Adjust max-width as needed */
+  margin: 0 auto; /* Center align if desired */
+  font-family: 'Arimo';
+  padding:16px;
+  font-size:18px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-control{
+  padding:16px;
+  margin-top:16px;
+  background-color: #eaeaea;
+  height:65px;
+  border-radius:15px !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-control:focus{
+  outline:none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Nice box shadow */
+  border:2px solid #FFA500;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.luxo-hyperlink{
+  color:#5D8AFC;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.luxo-home{
+  font-size:20px;
+  font-family: 'Arimo';
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.rent-button {
+  bottom: 10px;
+  left: 10px;
+  transform: translate(0, 0);
+}
+
+.color-box {
+  margin-right:8px;
+  width:100px;
+  border:unset;
+}
+
+.color-box.active {
+  border: 2px solid #FFD700; /* Highlight the active color with a gold border */
 }
