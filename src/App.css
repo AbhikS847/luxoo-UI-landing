@@ -55,6 +55,10 @@
   font-style: normal;
 }
 
+.footer-color{
+  background: linear-gradient(to right, #FFD700, #FFA500);
+}
+
 .luxo-brand{
   font-weight:700;
   color:#fff;
@@ -148,11 +152,21 @@
 }
 
 .color-box {
+  border-radius: 4px;
   margin-right:8px;
-  width:100px;
-  border:unset;
+  cursor: pointer;
+  transition: width 0.3s, height 0.3s; /* Smooth transition for size change */
 }
 
 .color-box.active {
-  border: 2px solid #FFD700; /* Highlight the active color with a gold border */
+
+}
+
+.car-image {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19); /* Add a shadow to the images */
+  border-radius: 8px; /* Optional: Add slight rounding to the corners */
+}
+
+.bg-light {
+  background-color: #f8f9fa !important; /* Light grey background */
 }

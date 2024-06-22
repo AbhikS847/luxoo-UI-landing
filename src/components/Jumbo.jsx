@@ -16,7 +16,7 @@ const Jumbo = () => {
     }, 3000); // Change testimonial every 3 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [testimonials.length]); // Include testimonials.length in dependencies to prevent stale closure
 
   return (
     <div className="jumbotron" style={{ position: 'relative', textAlign: 'left' }}>
@@ -27,25 +27,25 @@ const Jumbo = () => {
             <div>Rent your luxury cars today</div>
           </div>
           <div className="testimonial-section d-none d-lg-block">
-          <div className="testimonial">
-            {testimonials.map((testimonial, index) => (
-              <div>
-              <div key={testimonial.id} style={{ display: index === currentTestimonial ? 'block' : 'none' }}>
+            {/* Testimonial display */}
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.id} style={{ display: testimonial.id === currentTestimonial + 1 ? 'block' : 'none' }}>
                 "{testimonial.text}"
-              </div>
               </div>
             ))}
           </div>
-        </div>
+          {/* Button with 25% off */}
           <button className="btn btn-primary" style={{ fontSize: '1rem' }}>
             25% off orders
           </button>
         </div>
 
         <div className="lower-jumbo" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          {/* Sign up button */}
           <button className="btn btn-primary" style={{ fontSize: '1rem' }}>
             Sign up
           </button>
+          {/* Contact info */}
           <div style={{ textAlign: 'right' }}>
             <div>1234-456-567</div>
             <div>luxocars.com.au</div>

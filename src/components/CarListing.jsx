@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import car1 from '../images/car1.png';
 import car2 from '../images/car2.png';
 import car3 from '../images/car3.png';
 
 const CarListing = () => {
+  const [activeColors, setActiveColors] = useState({});
+
+  const handleColorClick = (carIndex, colorIndex) => {
+    setActiveColors({ ...activeColors, [carIndex]: colorIndex });
+  };
+
   const cars = [
     {
       imageUrl: car1,
@@ -39,17 +45,17 @@ const CarListing = () => {
 
   return (
     <div className="container">
-      {cars.map((car, index) => (
-        <div className="row mb-4 align-items-center" key={index}>
+      {cars.map((car, carIndex) => (
+        <div className="row mb-4 align-items-center" key={carIndex}>
           {/* Image of the luxury car (col-md-4 for desktop, col-12 for mobile) */}
           <div className="col-md-4 col-12 position-relative">
-            <img src={car.imageUrl} alt={car.name} className="img-fluid" />
+            <img src={car.imageUrl} alt={car.name} className="img-fluid car-image" />
             <button className="btn btn-primary position-absolute rent-button">
               Rent for ${car.price} per day
             </button>
           </div>
           {/* Description of the luxury car (col-md-8 for desktop, col-12 for mobile) */}
-          <div className="col-md-8 col-12">
+          <div className="col-md-8 col-12 bg-light p-3">
             <h2>{car.name}</h2>
             <p><strong>Engine:</strong> {car.engine}</p>
             <div className="d-flex justify-content-between">
@@ -62,15 +68,17 @@ const CarListing = () => {
               <strong>Colors:</strong>
               <hr />
               <div className="d-inline-flex">
-                {car.colors.map((color, index) => (
+                {car.colors.map((color, colorIndex) => (
                   <div
-                    key={index}
-                    className="color-box mr-2"
+                    key={colorIndex}
+                    onClick={() => handleColorClick(carIndex, colorIndex)}
+                    className={`color-box mr-2 ${activeColors[carIndex] === colorIndex ? 'active' : ''}`}
                     style={{
                       backgroundColor: color,
-                      width: '40px',
-                      height: '40px',
+                      width: activeColors[carIndex] === colorIndex ? '50px' : '40px',
+                      height: activeColors[carIndex] === colorIndex ? '50px' : '40px',
                       border: '1px solid #eaeaea',
+                      cursor: 'pointer',
                     }}
                   ></div>
                 ))}
